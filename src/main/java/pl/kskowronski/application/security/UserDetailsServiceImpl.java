@@ -1,9 +1,12 @@
-package com.example.application.security;
+package pl.kskowronski.application.security;
 
-import com.example.application.data.entity.User;
-import com.example.application.data.service.UserRepository;
+import pl.kskowronski.application.data.entity.Role;
+import pl.kskowronski.application.data.entity.User;
+import pl.kskowronski.application.data.service.UserRepository;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,10 +28,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("No user present with username: " + username);
-        } else {
-            return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getHashedPassword(),
-                    getAuthorities(user));
         }
+
+//        var r1 = new Role(1,"ADMIN");
+//        var r2 = new Role(1,"USER");
+//        user.setRoles(Stream.of(r1, r2).collect(Collectors.toSet()));
+
+        return new MyUserDetails(user);
+
     }
 
     private static List<GrantedAuthority> getAuthorities(User user) {

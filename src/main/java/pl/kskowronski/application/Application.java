@@ -1,6 +1,6 @@
-package com.example.application;
+package pl.kskowronski.application;
 
-import com.example.application.data.service.UserRepository;
+import pl.kskowronski.application.data.service.UserRepository;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.theme.Theme;
 import javax.sql.DataSource;
@@ -25,18 +25,18 @@ public class Application implements AppShellConfigurator {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
-    SqlDataSourceScriptDatabaseInitializer dataSourceScriptDatabaseInitializer(DataSource dataSource,
-            SqlInitializationProperties properties, UserRepository repository) {
-        // This bean ensures the database is only initialized when empty
-        return new SqlDataSourceScriptDatabaseInitializer(dataSource, properties) {
-            @Override
-            public boolean initializeDatabase() {
-                if (repository.count() == 0L) {
-                    return super.initializeDatabase();
-                }
-                return false;
-            }
-        };
-    }
+//    @Bean
+//    SqlDataSourceScriptDatabaseInitializer dataSourceScriptDatabaseInitializer(DataSource dataSource,
+//            SqlInitializationProperties properties, UserRepository repository) {
+//        // This bean ensures the database is only initialized when empty
+//        return new SqlDataSourceScriptDatabaseInitializer(dataSource, properties) {
+//            @Override
+//            public boolean initializeDatabase() {
+//                if (repository.count() == 0L) {
+//                    return super.initializeDatabase();
+//                }
+//                return false;
+//            }
+//        };
+//    }
 }

@@ -1,4 +1,4 @@
-package com.example.application.endpoints.helloreact;
+package pl.kskowronski.application.endpoints.helloreact;
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.Endpoint;

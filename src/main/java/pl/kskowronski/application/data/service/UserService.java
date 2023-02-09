@@ -1,6 +1,8 @@
-package com.example.application.data.service;
+package pl.kskowronski.application.data.service;
 
-import com.example.application.data.entity.User;
+import pl.kskowronski.application.data.entity.User;
+
+import java.math.BigDecimal;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +18,7 @@ public class UserService {
         this.repository = repository;
     }
 
-    public Optional<User> get(Long id) {
+    public Optional<User> get(BigDecimal id) {
         return repository.findById(id);
     }
 
@@ -24,7 +26,7 @@ public class UserService {
         return repository.save(entity);
     }
 
-    public void delete(Long id) {
+    public void delete(BigDecimal id) {
         repository.deleteById(id);
     }
 

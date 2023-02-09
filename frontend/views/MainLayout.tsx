@@ -55,8 +55,8 @@ export default function MenuOnLeftLayout() {
         {state.user ? (
           <>
             <div className="flex items-center gap-m">
-              <Avatar theme="xsmall" img={state.user.profilePictureUrl} name={state.user.name} />
-              {state.user.name}
+              <Avatar theme="xsmall" img={state.user.profilePictureUrl} name={state.user.username} />
+              {state.user.username}
             </div>
             <Button onClick={async () => logout(unauthenticate)}>Sign out</Button>
           </>

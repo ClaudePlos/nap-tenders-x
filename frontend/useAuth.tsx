@@ -1,5 +1,5 @@
-import type User from 'Frontend/generated/com/example/application/data/entity/User.js';
-import type Role from 'Frontend/generated/com/example/application/data/Role.js';
+import type User from 'Frontend/generated/pl/kskowronski/application/data/entity/User.js';
+import type Role from 'Frontend/generated/pl/kskowronski/application/data/entity/Role.js';
 import { UserEndpoint } from 'Frontend/generated/endpoints.js';
 import { createContext, Dispatch, useEffect, useReducer } from 'react';
 
@@ -50,9 +50,7 @@ function createAuthenticateThunk(dispatch: Dispatch<LoginActions>) {
     // Get user info from endpoint
     const userInfo = await UserEndpoint.getAuthenticatedUser();
     if (userInfo) {
-      const profilePictureUrl = `data:image;base64,${btoa(
-        userInfo.profilePicture.reduce((str, n) => str + String.fromCharCode((n + 256) % 256), '')
-      )}`;
+      const profilePictureUrl = `ole`;
       const user = {
         ...userInfo,
         profilePictureUrl,
