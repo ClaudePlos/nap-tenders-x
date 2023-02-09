@@ -34,8 +34,8 @@ export default function TendersView() {
 
     return (
         <>
-            <section className="flex p-m gap-m items-end">
-                <Grid items={tenders}>
+            <section className="flex p-m  h-screen gap-m items-end">
+                <Grid items={tenders} className="h-full">
                     <GridColumn header="Typ" width="5px" renderer={({ item }) => {
                         return item.tenderType === "TRANSPORT" ?
                             <svg width="22" height="22" viewBox="0 0 1024 1024">
