@@ -30,9 +30,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("No user present with username: " + username);
         }
 
-//        var r1 = new Role(1,"ADMIN");
-//        var r2 = new Role(1,"USER");
-//        user.setRoles(Stream.of(r1, r2).collect(Collectors.toSet()));
+        var r1 = new Role(1,"ADMIN");
+        var r2 = new Role(1,"USER");
+        user.setRoles(Stream.of(r1, r2).collect(Collectors.toSet()));
 
         return new MyUserDetails(user);
 
