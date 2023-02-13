@@ -32,23 +32,19 @@ export default function TendersView() {
         return () => { };
     }, []);
 
+    // @ts-ignore
+    function ImgGoal(props) {
+        return (
+            props.name === "CATER" ? <img className="Avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMhdsZOruGAPsyNQFzkeclrSjM-MAuRdqHig&usqp=CAU"/> :
+                <img className="Avatar" src={props.url}  alt={props.name}/>
+        );
+    }
+
     return (
         <>
             <section className="flex p-m  h-screen gap-m items-end">
                 <Grid items={tenders} className="h-full">
-                    <GridColumn header="Typ" width="5px" renderer={({ item }) => {
-                        return item.tenderType === "TRANSPORT" ?
-                            <svg width="22" height="22" viewBox="0 0 1024 1024">
-                                <path d={icons.car}></path>
-                            </svg> : item.tenderType === "CATER" ?
-                            <svg width="22" height="22" viewBox="0 0 1024 1024">
-                                <path d={icons.cater}></path>
-                            </svg> :
-                                <svg width="22" height="22" viewBox="0 0 1024 1024">
-                                    <path d={icons.trash}></path>
-                                </svg>;
-
-                    }} />
+                    <GridColumn header="Typ" width="5px" renderer={({ item }) => {return <ImgGoal name = {item.tenderType}/>;}} />
                     <GridColumn header="Purchaser" renderer={({ item }) => <span title={item.purchaser}>{item.purchaser}</span>} />
                     <GridSortColumn  header="City" path='city' />
                     <GridColumn header="Deadline" path='deadlineApplication' />
